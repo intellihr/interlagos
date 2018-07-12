@@ -1,0 +1,18 @@
+version: '3.6'
+
+services:
+  local:
+    build:
+      context: .
+      args:
+        BUILD_ENV: local
+      dockerfile: .docker/Dockerfile
+    command: ./.docker/scripts/run.sh
+
+  test:
+    build:
+      context: .
+      args:
+        BUILD_ENV: test
+      dockerfile: .docker/Dockerfile
+    command: ./.docker/scripts/test.sh

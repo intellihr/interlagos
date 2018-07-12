@@ -1,0 +1,3 @@
+-r development.txt
+
+pytest==3.6.3
