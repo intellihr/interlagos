@@ -1,0 +1,9 @@
+.git
+.vscode
+docs
+**/__pycache__
+**/*.example
+**/*.pyc
+**/Dockerfile
+docker-compose.*
+README.md
