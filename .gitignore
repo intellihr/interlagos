@@ -1,6 +1,5 @@
 .vscode/
 docker-compose.override.yml
-**/local.txt
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
