@@ -14,4 +14,4 @@ RUN python -m nltk.downloader punkt stopwords wordnet averaged_perceptron_tagger
 
 ADD . .
 
-ENTRYPOINT make "$@"
+ENTRYPOINT [ "make" ]
