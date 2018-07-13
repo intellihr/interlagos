@@ -1,0 +1,12 @@
+---
+version: "2"
+plugins:
+  duplication:
+    enabled: true
+    config:
+      languages:
+      - python
+  fixme:
+    enabled: true
+exclude_patterns:
+  - tests/
