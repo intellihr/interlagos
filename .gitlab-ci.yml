@@ -65,6 +65,7 @@ sast:
         --volume "$PWD/interlagos:/code"
         --volume /var/run/docker.sock:/var/run/docker.sock
         "registry.gitlab.com/gitlab-org/security-products/sast:$SP_VERSION" /app/bin/run /code
+    - mv interlagos/gl-sast-report.json gl-sast-report.json
   artifacts:
     paths: [gl-sast-report.json]
 
