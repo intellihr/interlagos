@@ -18,7 +18,7 @@ def extract_n_gram_from(tokens, max_n=3):
     """
 
     output = tokens[:]
-    for n in range(1, max_n + 1):
+    for n in range(2, max_n + 1):
         output += _n_gram(tokens, n)
 
     return output
