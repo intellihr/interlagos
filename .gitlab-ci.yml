@@ -130,7 +130,7 @@ release-artifact:
   artifacts:
     name: "$CI_COMMIT_TAG"
     paths:
-      - interlagos
+      - dist/*
   dependencies:
     - release-image
   only:
