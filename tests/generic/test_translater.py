@@ -1,6 +1,6 @@
 import itertools
 
-import interlagos.generic.translater as translater
+from interlagos.generic import translater
 from interlagos.generic._global import TRANSLATION
 
 TOKENS = [

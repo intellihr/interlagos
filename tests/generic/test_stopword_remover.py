@@ -1,4 +1,4 @@
-import interlagos.generic.stopword_remover as stopword_remover
+from interlagos.generic import stopword_remover
 
 TOKENS = ['to', 'be', 'or', 'not', 'to', 'be']
 

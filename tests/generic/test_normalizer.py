@@ -1,4 +1,4 @@
-import interlagos.generic.normalizer as normalizer
+from interlagos.generic import normalizer
 
 TOKENS = ['Otherwise', 'IBM', 'intelliHR', 'PoC', 'unknown']
 

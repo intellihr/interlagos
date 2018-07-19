@@ -1,4 +1,4 @@
-import interlagos.generic.spelling_corrector as spelling_corrector
+from interlagos.generic import spelling_corrector
 
 TOKENS = [
     'the', 'memiry', 'we', 'ued', 'to', 'share', 'is', 'no', 'lnger', 'cohernt'

@@ -1,4 +1,4 @@
-import interlagos.generic.stemmer as stemmer
+from interlagos.generic import stemmer
 
 TOKENS = [
     'the', 'body', 'may', 'perhaps', 'compensates', 'for', 'the', 'loss', 'of',
