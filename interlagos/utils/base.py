@@ -58,7 +58,7 @@ def replace_with_phrases(tokens, phrases):
     return tempTokens
 
 
-def append_with_phrase(tokens, phrases):
+def append_with_phrases(tokens, phrases):
     """Append phrases to the tokens.
 
     Args:

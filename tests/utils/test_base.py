@@ -38,7 +38,7 @@ def test_append_with_phrases(snapshot):
         'amet', 'in', 'veniam', 'esse', 'nulla', 'nostrud', 'adipisicing',
         'veniam esse', 'nulla nostrud'
     ]
-    tokens = utils.append_with_phrase(subject, phrases)
+    tokens = utils.append_with_phrases(subject, phrases)
 
     assert tokens == expected_tokens
 
