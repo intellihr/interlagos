@@ -127,6 +127,7 @@ release-artifact:
   stage: publish
   script:
     - docker pull $CONTAINER_MASTER_IMAGE || true
+    - docker run $CONTAINER_BUILD_IMAGE release
   artifacts:
     name: "$CI_COMMIT_TAG"
     paths:
