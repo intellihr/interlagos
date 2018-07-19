@@ -1,4 +1,4 @@
-import interlagos.generic.lemmatizer as lemmatizer
+from interlagos.generic import lemmatizer
 
 TOKENS = [
     'dogs', 'churches', 'leaves', 'aardwolves', 'thesauri', 'millennia',

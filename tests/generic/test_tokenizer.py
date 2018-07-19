@@ -1,4 +1,4 @@
-import interlagos.generic.tokenizer as tokenizer
+from interlagos.generic import tokenizer
 
 PARAGRAPH = 'Aliqua velit fugiat labore dolor incididunt labore. ' \
     'Id pariatur commodo non minim. ' \

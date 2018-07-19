@@ -1,4 +1,4 @@
-import interlagos.generic.phrase_extractor as phrase_extractor
+from interlagos.generic import phrase_extractor
 
 TOKENS = [
     'cats', 'are', 'good', 'pets', 'for', 'they', 'are', 'clean', 'and', 'are',

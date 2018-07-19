@@ -1,4 +1,4 @@
-import interlagos.generic.sanitizer as sanitizer
+from interlagos.generic import sanitizer
 
 TOKENS = [
     'if', 'you', 'like', 'tuna', 'and', 'tomato', 'sauce', '-', 'try',
