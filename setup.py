@@ -2,7 +2,10 @@ import io
 import os
 import sys
 
-from setuptools import find_packages, setup, Command
+from setuptools import Command, find_packages, setup
+from setuptools.command.develop import develop
+from setuptools.command.egg_info import egg_info
+from setuptools.command.install import install
 
 # Package meta-data
 NAME = 'interlagos'
@@ -66,42 +69,58 @@ class ReleaseCommand(Command):
         sys.exit()
 
 
-def post_install(setup):
-    def post_actions():
-        import nltk
-        for data in NLTK_DATA:
-            nltk.download(data)
-
-    post_actions()
-
-    return setup
+def post_install():
+    import nltk
+    for data in NLTK_DATA:
+        nltk.download(data)
 
 
-setup = post_install(
-    setup(
-        name=NAME,
-        version=about['__version__'],
-        description=DESCRIPTION,
-        long_description=long_description,
-        long_description_content_type='text/markdown',
-        author=AUTHOR,
-        author_email=EMAIL,
-        python_requires=REQUIRES_PYTHON,
-        url=URL,
-        packages=find_packages(exclude=('tests', )),
-        install_requires=REQUIRED,
-        extras_require=EXTRAS,
-        include_package_data=True,
-        license='MIT',
-        classifiers=[
-            'Development Status :: 4 - Beta',
-            'Intended Audience :: Developers',
-            'License :: OSI Approved :: MIT License',
-            'Natural Language :: English', 'Programming Language :: Python',
-            'Programming Language :: Python :: 3',
-            'Programming Language :: Python :: 3.6',
-            'Programming Language :: Python :: 3 :: Only',
-            'Topic :: Scientific/Engineering :: Artificial Intelligence',
-            'Topic :: Software Development :: Libraries :: Python Modules'
-        ],
-        cmdclass={'release': ReleaseCommand}))
+class InstallCommand(install):
+    def run(self):
+        install.run(self)
+        post_install()
+
+
+class DevelopCommand(develop):
+    def run(self):
+        develop.run(self)
+        post_install()
+
+
+class EggInfoCommand(egg_info):
+    def run(self):
+        egg_info.run(self)
+        post_install()
+
+
+setup(
+    name=NAME,
+    version=about['__version__'],
+    description=DESCRIPTION,
+    long_description=long_description,
+    long_description_content_type='text/markdown',
+    author=AUTHOR,
+    author_email=EMAIL,
+    python_requires=REQUIRES_PYTHON,
+    url=URL,
+    packages=find_packages(exclude=('tests', )),
+    install_requires=REQUIRED,
+    extras_require=EXTRAS,
+    include_package_data=True,
+    license='MIT',
+    classifiers=[
+        'Development Status :: 4 - Beta', 'Intended Audience :: Developers',
+        'License :: OSI Approved :: MIT License',
+        'Natural Language :: English', 'Programming Language :: Python',
+        'Programming Language :: Python :: 3',
+        'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3 :: Only',
+        'Topic :: Scientific/Engineering :: Artificial Intelligence',
+        'Topic :: Software Development :: Libraries :: Python Modules'
+    ],
+    cmdclass={
+        'release': ReleaseCommand,
+        'install': InstallCommand,
+        'develop': DevelopCommand,
+        'egg_info': EggInfoCommand
+    })
