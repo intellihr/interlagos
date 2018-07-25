@@ -1,12 +1,8 @@
 import io
 import os
 import sys
-import atexit
 
 from setuptools import find_packages, setup, Command
-from setuptools.command.install import install as _install
-from setuptools.command.develop import develop as _develop
-from setuptools.command.egg_info import egg_info as _egg_info
 
 # Package meta-data
 NAME = 'interlagos'
@@ -81,24 +77,6 @@ def post_install(setup):
     return setup
 
 
-class InstallCommand(_install):
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        atexit.register(post_install)
-
-
-class DevelopCommand(_develop):
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        atexit.register(post_install)
-
-
-class EggInfoCommand(_egg_info):
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        atexit.register(post_install)
-
-
 setup = post_install(
     setup(
         name=NAME,
@@ -126,9 +104,4 @@ setup = post_install(
             'Topic :: Scientific/Engineering :: Artificial Intelligence',
             'Topic :: Software Development :: Libraries :: Python Modules'
         ],
-        cmdclass={
-            'release': ReleaseCommand,
-            'install': InstallCommand,
-            'develop': DevelopCommand,
-            'egg_info': EggInfoCommand
-        }))
+        cmdclass={'release': ReleaseCommand}))
