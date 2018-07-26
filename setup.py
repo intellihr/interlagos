@@ -4,7 +4,6 @@ import sys
 
 from setuptools import Command, find_packages, setup
 from setuptools.command.develop import develop
-from setuptools.command.egg_info import egg_info
 from setuptools.command.install import install
 
 # Package meta-data
@@ -87,12 +86,6 @@ class DevelopCommand(develop):
         post_install()
 
 
-class EggInfoCommand(egg_info):
-    def run(self):
-        egg_info.run(self)
-        post_install()
-
-
 setup(
     name=NAME,
     version=about['__version__'],
@@ -121,6 +114,5 @@ setup(
     cmdclass={
         'release': ReleaseCommand,
         'install': InstallCommand,
-        'develop': DevelopCommand,
-        'egg_info': EggInfoCommand
+        'develop': DevelopCommand
     })
