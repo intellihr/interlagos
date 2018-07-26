@@ -69,9 +69,12 @@ class ReleaseCommand(Command):
 
 
 def post_install():
-    import nltk
-    for data in NLTK_DATA:
-        nltk.download(data)
+    try:
+        import nltk
+        for data in NLTK_DATA:
+            nltk.download(data)
+    except ModuleNotFoundError:
+        pass
 
 
 class InstallCommand(install):
