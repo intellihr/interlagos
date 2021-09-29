@@ -16,7 +16,7 @@ REQUIRES_PYTHON = '>=3.6.0'
 VERSION = None
 
 # What packages are required for this module to be executed?
-REQUIRED = ['autocorrect==0.3.0', 'nltk==3.3', 'python-rake==1.4.5']
+REQUIRED = ['autocorrect==0.3.0', 'nltk==3.6.3', 'python-rake==1.4.5']
 
 # What packages are optional?
 EXTRAS = {}
